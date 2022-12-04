@@ -1,17 +1,17 @@
-#include <BROSE9323.h>
+#include "BROSE9323.h"
 
-BROSE9323 display(112, 16, 28);
+BROSE9323 display(84, 19, 28);
 
 /*
- * UMLAUT:
- * Ä \x8E
- * ä \x84
- * Ö \x99
- * ö \x94
- * Ü \x9A
- * ü \x81
- * ß \xE0
- */
+   UMLAUT:
+   Ä \x8E
+   ä \x84
+   Ö \x99
+   ö \x94
+   Ü \x9A
+   ü \x81
+   ß \xE0
+*/
 const char text[] = "This is a test. Testing \x9Aml\x8Aute. ";
 const uint8_t textsize = 2;
 
@@ -26,9 +26,9 @@ void setup() {
 }
 
 void loop() {
-	for (int16_t x = display.width(); x > -((int16_t) strlen(text) * textsize * 6); x--) {
-		display.setCursor(x, 0);
-		display.print(text);
-		display.display();
-	}
+  for (int16_t x = display.width(); x > -((int16_t) strlen(text) * textsize * 6); x--) {
+    display.setCursor(x, 0);
+    display.print(text);
+    display.display();
+  }
 }
